@@ -1,33 +1,57 @@
 ﻿namespace Jogodos_dados.ConosoleApp
 {
-    /* Versão 1 - Estrutura básica e simulação de dados 
+    /* Versão 2 - Controle da posição do jogador 
     Requisitos:
-
-    Exibir um banner para o jogo de dados
-    Implementar a geração de números aleatórios para simular um dado (1-6)
-    Exibir o resultado do lançamento do dado
-    Permitir que o usuário pressione Enter para lançar o dado
+    Armazenar a posição do jogador na pista e atualizar o valor após o lançamento do dado
+    Exibir a posição atual do jogador na pista
+    Definir a linha de chegada em 30 verificar se o jogador alcançou ou ultrapassou a linha de chegada
+    Permitir o jogador realizar várias jogadas
      */
 
     internal class Program
     {
         static void Main(string[] args)
         {
+            //const valor fixo, identificador so leitura,numeros magicos
+            const int limiteLinhaChegada = 30;
+
             while (true)
             {
-                ExibirCabecalho();
+                int posicaoUsuario = 0;
+                bool jogoEstaEmAndamento = true;
 
-                int resultado = LancarDado();
+                while (jogoEstaEmAndamento)
+                {
+                    ExibirCabecalho();
 
-                ExibirResultadoDoSorteio(resultado);
+                    int resultado = LancarDado();
 
-                string  opcaoContinuar = ExibirMenuContinuar();
+                    ExibirResultadoDoSorteio(resultado);
+
+                    posicaoUsuario += resultado;
+
+                    Console.WriteLine($"O jogador esta na posicao: {posicaoUsuario} de {limiteLinhaChegada}");
+
+                    if (posicaoUsuario >= limiteLinhaChegada)
+                    { 
+                        Console.WriteLine("Parabens voce alcancou a linha de chegada!");
+
+                        jogoEstaEmAndamento = false;
+                    }
+                    else
+
+                        Console.WriteLine($"O jogador esta na posicao: {posicaoUsuario} de {limiteLinhaChegada}");
+
+                    Console.Write("Pressione  ENTER para continuar");
+                    Console.ReadLine();
+                }
+
+                string opcaoContinuar = ExibirMenuContinuar();
 
                 if (opcaoContinuar != "S")
                     break;
             }
 
-            Console.WriteLine("Hello, World!");
         }
 
         static void ExibirCabecalho()
@@ -61,8 +85,9 @@
         }
         static string ExibirMenuContinuar()
         {
-
+            Console.WriteLine("--------------------");
             Console.Write("Deseja continuar? (s/N) ");
+            Console.WriteLine("--------------------");
             string opcaContinuar = Console.ReadLine()!.ToUpper();
 
             return opcaContinuar;
