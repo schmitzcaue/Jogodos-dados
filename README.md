@@ -55,14 +55,13 @@ Este jogo foi desenvolvido em C# e implementa a mecânica de geração de númer
 
 ## Autor SCHMITZ.CAUE
 
-<main>
-<div style="display: flex; align-items: center; gap: 20px;padding-bottom: 2em">
-  
-  <h3 style="margin: 0;"><i> SCHMITZ.CAUE</i></h4>
-</div>
+
+  <img src="https://github.com/user-attachments/assets/bea09985-5a7f-40ca-b0a6-6891c144a032" width="280" />
+  <h3 style="margin: 0;"><i>SCHMITZ.CAUE</i></h4>
+
 
   <p>
-    <a href="https://www.linkedin.com/in/alexandresouza31/">
+    <a href="https://www.linkedin.com/in/cau%C3%AA-schmitz-316261356/">
       <img src="https://skillicons.dev/icons?i=linkedin&theme=dark" width="50"/>
       LinkedIn
     </a> &nbsp;  |  &nbsp;
